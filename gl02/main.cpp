@@ -5,48 +5,13 @@
 //  Created by 鲁飞 on 15/8/7.
 //  Copyright (c) 2015年 鲁飞. All rights reserved.
 //
-
-
 #include "LCommon.h"
-#include "drawitem.h"
-
-void init(){
-    srand(clock());
-   // glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
-    glColor3f(1.0f, 0.0f, 0.0f);
-   // gluOrtho2D(-10.0f, 10.0f, -10.0f, 10.0f);
-    glViewport(0, 0, 640, 480);
-    glEnable(GL_NORMALIZE);
-}
-
-bool t = true;
-void display(){
-    while(t)
-    {
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glOrtho(-2.0*64.0/48.0, 2.0*64.0/48.0, -2.0, 2.0, 0.1, 100);
-        
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        gluLookAt(2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
-        
-        glClear(GL_COLOR_BUFFER_BIT);
-        
-        LMesh mesh;
-        mesh.read("/Users/lufei1/Documents/project/gl02/mesh.xml");
-        mesh.draw();
-        
-        glFlush();
-        t = false;
-    }
-  
-}
+#include "CCSprite.h"
+#include "CCDirector.h"
 
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
         if (button == GLUT_LEFT_BUTTON) {
-         //   glutPostRedisplay();
         }
     }
     
@@ -64,18 +29,46 @@ void keyboard(unsigned char keyValue, int x, int y){
     }
 }
 
+void redraw(){}
+
+// 空闲回调
+void idleCallback(){
+    static clock_t pre = clock();
+    
+//    t=0.1进行一次重绘
+    if (clock() - pre > 0.1 * CLOCKS_PER_SEC) {
+        pre = clock();
+        
+        // 绘制每帧场景
+//        drawScene();
+        CCDirector::sharedDirector()->mainLoop();
+        glFlush();
+    }
+}
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     glutInit(&argc, (char **)argv);
-    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGBA);
     glutInitWindowSize (640, 480);
     glutInitWindowPosition (1000, 100);
-    glutCreateWindow ("graphics with opengl");
-    glutDisplayFunc(display);
-    //glutMouseFunc(mouse);
+    glutCreateWindow ("GLO2 2D Game Enginer");
+    
+    glEnable(GL_TEXTURE_2D);      // 启用纹理映射
+
+    CCSprite *scene = CCSprite::create("/Users/lewis/Desktop/gl02/asset/Icon-72@2x.png");
+    CCDirector::sharedDirector()->runWithScene(scene);
+
+    glutDisplayFunc(redraw);
+   
+    glutIdleFunc(idleCallback);
+    
+    glutMouseFunc(mouse);
+    
     glutKeyboardFunc(keyboard);
-    init();
+    
     glutMainLoop();
+    
     return 0;
 }
