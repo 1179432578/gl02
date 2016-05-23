@@ -6,4 +6,9 @@
 //  Copyright © 2016年 鲁飞. All rights reserved.
 //
 
-#include "ccShaders.hpp"
+#include "ccShaders.h"
+
+const GLchar * ccPositionTextureColor_vert =
+#include "ccShader_PositionTextureColor_vert.h"
+const GLchar * ccPositionTextureColor_frag =
+#include "ccShader_PositionTextureColor_frag.h"

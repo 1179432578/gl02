@@ -9,6 +9,10 @@
 #ifndef ccShaders_hpp
 #define ccShaders_hpp
 
-#include <stdio.h>
+#include "GLUT/glut.h"
 
 #endif /* ccShaders_hpp */
+
+
+extern  const GLchar * ccPositionTextureColor_vert;     // sprite的 vertex shader
+extern  const GLchar * ccPositionTextureColor_frag;     // sprite的 fragment shader

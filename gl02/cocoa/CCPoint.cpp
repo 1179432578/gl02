@@ -6,4 +6,12 @@
 //  Copyright © 2016年 鲁飞. All rights reserved.
 //
 
-#include "CCPoint.hpp"
+#include "CCPoint.h"
+
+CCPoint::CCPoint() : x(0), y(0){
+
+}
+
+CCPoint::CCPoint(float x, float y) : x(x), y(y){
+
+}

@@ -9,6 +9,35 @@
 #ifndef CCGeometry_hpp
 #define CCGeometry_hpp
 
-#include <stdio.h>
+#include "CCPoint.h"
+
+class CCSize
+{
+public:
+    float width;
+    float height;
+    
+public:
+    CCSize();
+    CCSize(float width, float height);
+
+};
+
+class CCRect
+{
+public:
+    CCPoint origin;
+    CCSize  size;
+    
+public:
+    CCRect();
+    CCRect(float x, float y, float width, float height);
+    CCRect(const CCRect& other);
+    
+    void setRect(float x, float y, float width, float height);
+};
+
+
+
 
 #endif /* CCGeometry_hpp */

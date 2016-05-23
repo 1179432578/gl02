@@ -6,4 +6,10 @@
 //  Copyright © 2016年 鲁飞. All rights reserved.
 //
 
-#include "CCScene.hpp"
+#include "CCScene.h"
+
+CCScene *CCScene::create(void){
+    CCScene *ret = new CCScene;
+    
+    return ret;
+}

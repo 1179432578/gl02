@@ -22,15 +22,9 @@
 
 
 // L
-#include "world window and screen view.h"
-#include "LDeviceContext.h"
-#include "LPoint2f.h"
-#include "LMatrix.h"
-#include "cyrus-beck.h"
-#include "LMath.h"
-#include "LTool.h"
-#include "LScene.h"
-#include "LMesh.h"
+
+//cocos
+#include "CCPoint.h"
 
 // 
 #define PT(a,b) LPoint2f((float)a,(float)b)

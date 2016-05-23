@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "78B398E83C3E2A38BB2D62B2DCDD99C04AF27714",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "78B398E83C3E2A38BB2D62B2DCDD99C04AF27714" : 0,
+    "E838061F48B2887FC2DFABCE8B47F595308000E6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F5919012-834B-4319-AEE4-9DFCAFCBAFD1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "78B398E83C3E2A38BB2D62B2DCDD99C04AF27714" : "gl02\/",
+    "E838061F48B2887FC2DFABCE8B47F595308000E6" : "..\/cocos2d-x-2.2.2-pak"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "gl02",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "gl02.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/1179432578\/gl02.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "78B398E83C3E2A38BB2D62B2DCDD99C04AF27714"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/stash.stm.com\/scm\/grr\/cocos2d-x-2.2.2-pak.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E838061F48B2887FC2DFABCE8B47F595308000E6"
+    }
+  ]
+}

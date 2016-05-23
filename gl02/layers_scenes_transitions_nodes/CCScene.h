@@ -9,6 +9,11 @@
 #ifndef CCScene_hpp
 #define CCScene_hpp
 
-#include <stdio.h>
+#include "CCNode.h"
+
+class CCScene : public CCNode {
+public:
+    static CCScene *create(void);
+};
 
 #endif /* CCScene_hpp */
