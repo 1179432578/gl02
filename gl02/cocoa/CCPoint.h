@@ -17,6 +17,8 @@ public:
 public:
     CCPoint();
     CCPoint(float x, float y);
+    
+    bool equals(const CCPoint& target) const;
 };
 
 #endif /* CCPoint_hpp */

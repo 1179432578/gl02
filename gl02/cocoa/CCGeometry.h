@@ -37,7 +37,14 @@ public:
     void setRect(float x, float y, float width, float height);
 };
 
+#define CCPointMake(x, y) CCPoint((float)(x), (float)(y))
+#define CCSizeMake(width, height) CCSize((float)(width), (float)(height))
+#define CCRectMake(x, y, width, height) CCRect((float)(x), (float)(y), (float)(width), (float)(height))
 
+const CCPoint CCPointZero = CCPointMake(0,0);
 
+const CCSize CCSizeZero = CCSizeMake(0,0);
+
+const CCRect CCRectZero = CCRectMake(0,0,0,0);
 
 #endif /* CCGeometry_hpp */

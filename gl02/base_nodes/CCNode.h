@@ -11,6 +11,7 @@
 
 #include "CCGLProgram.h"
 #include "CCGeometry.h"
+#include "Matrix.h"
 
 class CCNode{
 public:
@@ -34,6 +35,12 @@ public:
     
     virtual const CCPoint& getPosition();
     virtual void setPosition(const CCPoint& newPosition);
+    
+    virtual void setScale(float scale);
+    
+    virtual void setRotation(float fRotation);
+    
+    virtual Matrix44 nodeToParentTransform(void);
 public:
     CCGLProgram *m_pShaderProgram;
     
@@ -47,6 +54,14 @@ protected:
     
     //node的逻辑大小 不是纹理大小
     CCSize m_obContentSize;
+    
+    float  m_fScaleX;
+    float  m_fScaleY;
+    
+    float  m_fRotationX;
+    float  m_fRotationY;
+    
+    bool m_bIgnoreAnchorPointForPosition;//默认false
 };
 
 #endif /* CCNode_hpp */

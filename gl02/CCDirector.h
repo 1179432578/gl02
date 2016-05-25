@@ -43,7 +43,7 @@ public:
     void runWithScene(CCSprite *pScene);
     
 //    void setProjection(ccDirectorProjection kProjection);
-    //设置视图与透视投影矩阵
+    //设置观察与透视投影矩阵
     void setMVP();
     
     //设置视口变换矩阵

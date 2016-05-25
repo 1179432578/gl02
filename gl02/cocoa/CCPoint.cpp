@@ -7,6 +7,7 @@
 //
 
 #include "CCPoint.h"
+#include <math.h>
 
 CCPoint::CCPoint() : x(0), y(0){
 
@@ -14,4 +15,10 @@ CCPoint::CCPoint() : x(0), y(0){
 
 CCPoint::CCPoint(float x, float y) : x(x), y(y){
 
+}
+
+bool CCPoint::equals(const CCPoint& target) const
+{
+    return (fabs(this->x - target.x) < __FLT_EPSILON__)
+    && (fabs(this->y - target.y) < __FLT_EPSILON__);
 }

@@ -148,6 +148,7 @@ void CCSprite::initWithFile(const char *filename){
     
 //    setTextureRect包含下面3行代码
 //    setContentSize(untrimmedSize); 设置节点的内部大小
+//    ！！！！！！！！这里设置节点逻辑大小
     m_obContentSize.width = m_width;
     m_obContentSize.height = m_height;
     
