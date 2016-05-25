@@ -55,7 +55,11 @@ int main(int argc, const char * argv[]) {
     glutCreateWindow ("GLO2 2D Game Enginer");
     glEnable(GL_TEXTURE_2D);      // 启用纹理映射
 
-    CCSprite *scene = CCSprite::create("/Users/lufei1/Desktop/gl02/asset/Icon-72@2x.png");
+    CCSprite *scene = CCSprite::create("/Users/lewis/Desktop/gl02/Resources/asset/Icon-72@2x.png");
+    scene->setRotation(0);
+    scene->setScale(2);
+    scene->setAnchorPoint(ccp(0.5, 0.5));
+    scene->setPosition(ccp(340, 240));
     CCDirector::sharedDirector()->runWithScene(scene);
     //窗口重绘函数，这里直接提供了一个空函数。创建窗口后、改变窗口大小都会触发重绘。重绘函数为空函数会导致出现白色窗口，
     //我们可以指定绘制一张背景图来消除这个问题。

@@ -23,8 +23,6 @@ public:
     
     GLuint m_tex; //纹理id
     
-    CCPoint m_obPosition;   ///< position of the node
-    
     GLuint m_program;   //着色程序
     
     //    矩形四个角坐标
@@ -41,9 +39,6 @@ public:
     virtual void draw();
     
 //    void setShaderPrograma();
-    
-    void setPosition(float x, float y);
-    const CCPoint& getPosition();
     
 //    初始化 初始化变量以及着色程序
     void initWithFile(const char *filename);

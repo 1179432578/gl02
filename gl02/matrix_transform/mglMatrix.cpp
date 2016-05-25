@@ -95,8 +95,8 @@ void  mglLoadIdentity(void){
 
 void  mglMultMatrix(const Matrix44* pIn){
     lazyInitialize();
-//    mat4Multiply(current_stack->top, current_stack->top, pIn); //用于列矩阵
-     mat4Multiply(current_stack->top, pIn, current_stack->top); //用于行矩阵
+//    mat4Multiply(current_stack->top, current_stack->top, pIn); //用于列向量
+     mat4Multiply(current_stack->top, pIn, current_stack->top); //用于行向量
 }
 
 void  mglGetMatrix(kmGLEnum mode, Matrix44* pOut){

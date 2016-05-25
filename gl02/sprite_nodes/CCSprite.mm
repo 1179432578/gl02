@@ -218,12 +218,3 @@ void CCSprite::initWithFile(const char *filename){
 //    m_sQuad.tr.texCoords.u = right;
 //    m_sQuad.tr.texCoords.v = top;
 }
-
-void CCSprite::setPosition(float x, float y){
-    m_obPosition.x = x;
-    m_obPosition.y = y;
-}
-
-const CCPoint& CCSprite::getPosition(){
-    return m_obPosition;
-}

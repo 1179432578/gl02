@@ -60,6 +60,7 @@ protected:
     
     float  m_fRotationX;
     float  m_fRotationY;
+    float  m_rotation;//旋转角度 度数
     
     bool m_bIgnoreAnchorPointForPosition;//默认false
 };

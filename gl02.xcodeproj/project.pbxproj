@@ -25,8 +25,8 @@
 		29F1BA0E1CBB3A71007DED42 /* CCGLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F1BA0C1CBB3A71007DED42 /* CCGLProgram.cpp */; };
 		29F1BA111CBB3D54007DED42 /* ccShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F1BA0F1CBB3D54007DED42 /* ccShaders.cpp */; };
 		29F1BA171CBB4CCC007DED42 /* CCGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F1BA151CBB4CCC007DED42 /* CCGeometry.cpp */; };
-		29F27C761CB4C6FB00D77039 /* asset in CopyFiles */ = {isa = PBXBuildFile; fileRef = 29F27C751CB4C6B500D77039 /* asset */; };
 		F606311B1CEB6DC500F87496 /* CCShaderCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60631191CEB6DC500F87496 /* CCShaderCache.cpp */; };
+		F64A5A761CF5F546008BE12C /* asset in Resources */ = {isa = PBXBuildFile; fileRef = F64A5A751CF5F546008BE12C /* asset */; };
 		F6524CA01CC3C3640031019A /* CCNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524C9E1CC3C3640031019A /* CCNode.cpp */; };
 		F6524CA41CC3CD150031019A /* CCDirector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA21CC3CD150031019A /* CCDirector.cpp */; };
 		F6524CA81CC3D1830031019A /* CCScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA61CC3D1830031019A /* CCScene.cpp */; };
@@ -36,11 +36,10 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		298D576D1B7448DB00932F06 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
+			buildActionMask = 8;
+			dstPath = asset;
 			dstSubfolderSpec = 7;
 			files = (
-				29F27C761CB4C6FB00D77039 /* asset in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -82,9 +81,9 @@
 		29F1BA141CBB3EB3007DED42 /* ccShader_PositionTextureColor_frag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccShader_PositionTextureColor_frag.h; sourceTree = "<group>"; };
 		29F1BA151CBB4CCC007DED42 /* CCGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCGeometry.cpp; path = cocoa/CCGeometry.cpp; sourceTree = "<group>"; };
 		29F1BA161CBB4CCC007DED42 /* CCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCGeometry.h; path = cocoa/CCGeometry.h; sourceTree = "<group>"; };
-		29F27C751CB4C6B500D77039 /* asset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = asset; sourceTree = "<group>"; };
 		F60631191CEB6DC500F87496 /* CCShaderCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCShaderCache.cpp; sourceTree = "<group>"; };
 		F606311A1CEB6DC500F87496 /* CCShaderCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCShaderCache.h; sourceTree = "<group>"; };
+		F64A5A751CF5F546008BE12C /* asset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = asset; sourceTree = "<group>"; };
 		F6524C9E1CC3C3640031019A /* CCNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCNode.cpp; sourceTree = "<group>"; };
 		F6524C9F1CC3C3640031019A /* CCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNode.h; sourceTree = "<group>"; };
 		F6524CA21CC3CD150031019A /* CCDirector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCDirector.cpp; sourceTree = "<group>"; };
@@ -130,7 +129,7 @@
 				F6524CA11CC3C5E10031019A /* Frameworks */,
 				298D57711B7448DB00932F06 /* gl02 */,
 				298D57701B7448DB00932F06 /* Products */,
-				29F27C751CB4C6B500D77039 /* asset */,
+				F64A5A6B1CF5F52F008BE12C /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +213,14 @@
 			path = shaders;
 			sourceTree = "<group>";
 		};
+		F64A5A6B1CF5F52F008BE12C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F64A5A751CF5F546008BE12C /* asset */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F6524C9D1CC3C30F0031019A /* base_nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +277,7 @@
 				298D576B1B7448DB00932F06 /* Sources */,
 				298D576D1B7448DB00932F06 /* CopyFiles */,
 				298D576C1B7448DB00932F06 /* Frameworks */,
+				F64A5A661CF5EE39008BE12C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -310,6 +318,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F64A5A661CF5EE39008BE12C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F64A5A761CF5F546008BE12C /* asset in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		298D576B1B7448DB00932F06 /* Sources */ = {
