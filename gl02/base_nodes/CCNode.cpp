@@ -24,6 +24,7 @@ CCNode::CCNode()
 , m_obAnchorPoint(CCPointZero)
 , m_obContentSize(CCSizeZero)
 ,m_bIgnoreAnchorPointForPosition(false)
+,m_pChildren(NULL)
 {
 }
 
@@ -74,20 +75,49 @@ void CCNode::transform(){
 void CCNode::visit(){
     //    不可见返回
     
-    //    复制栈顶矩阵kmGLPushMatrix
+    //复制栈顶矩阵kmGLPushMatrix
     mglPushMatrix();
     
-    //    计算变换矩阵
+    //计算变换矩阵
     transform();
     
-    //    遍历zorder<0的节点visit
-    
-    //    draw
-    draw();
-    
-    //    遍历zorder>0的节点visit
-    
-    //    弹出栈顶矩阵kmGLPopMatrix
+    //draw
+    if(m_pChildren && m_pChildren->count() > 0)
+    {
+        sortAllChildren();
+        // draw children zOrder < 0
+        CCObject **arr = m_pChildren->m_arr;
+        CCNode* pNode = NULL;
+        int i=0;
+        for(; i < m_pChildren->m_count; i++)
+        {
+            pNode = (CCNode*)arr[i];
+            if (pNode && pNode->m_nZOrder < 0){
+                pNode->visit();
+            }
+            else{
+                break;
+            }
+        }
+        // self draw
+        this->draw();
+        
+        for(; i < m_pChildren->m_count; i++)
+        {
+            printf("%d\n", pNode->m_nZOrder);
+            pNode = (CCNode*)arr[i];
+            if (pNode)
+            {
+                pNode->visit();
+            }
+        }
+    }
+    else
+    {
+        this->draw();
+    }
+
+    //弹出栈顶矩阵kmGLPopMatrix
     mglPopMatrix();
 }
 
@@ -209,7 +239,7 @@ Matrix44 CCNode::nodeToParentTransform(void){
         float dyInWorld = m_obPosition.y + sindelta * m_fScaleX * dx + cosdelta * m_fScaleY * dy;
         
         //最终矩阵 http://...
-        Matrix44 transform = {cosdelta * m_fScaleX, sindelta * m_fScaleX, 0, 0,
+        m_obTransform = {cosdelta * m_fScaleX, sindelta * m_fScaleX, 0, 0,
                               -sindelta * m_fScaleY, cosdelta * m_fScaleY, 0, 0,
                                 0, 0, 1, 0,
                                 dxInWorld, dyInWorld, 0, 1};
@@ -247,6 +277,114 @@ Matrix44 CCNode::nodeToParentTransform(void){
 //        m_bTransformDirty = false;
 //    }
     
-    return transform;
+    return m_obTransform;
 
+}
+
+void CCNode::addChild(CCNode* child, int zOrder, int tag){
+//    CCAssert( child != NULL, "Argument must be non-nil");
+//    CCAssert( child->m_pParent == NULL, "child already added. It can't be added again");
+
+    if (!m_pChildren) {
+        m_pChildren = CCArray::create();
+    }
+    m_pChildren->addObject(child);
+    
+    child->m_nZOrder = zOrder;
+    printf("%d\n", child->m_nZOrder);
+    child->m_nTag = tag;
+    child->m_pParent = this;
+
+//    child->setOrderOfArrival(s_globalOrderOfArrival++);
+    
+    if(m_bRunning)//it's onEnter have been called
+    {
+        child->onEnter();
+//        child->onEnterTransitionDidFinish();
+    }
+
+}
+
+void CCNode::onEnter(){
+    m_bRunning = true;
+    
+//    if (m_eScriptType != kScriptTypeNone)
+//    {
+//        CCScriptEngineManager::sharedManager()->getScriptEngine()->executeNodeEvent(this, kCCNodeOnEnter);
+//    }
+    
+    //它会调用子节点的onEnter，addChild也会调用，都是通过m_bRunning状态来进行的
+    if (m_pChildren && m_pChildren->count() > 0)
+    {
+        CCObject* child;
+        CCNode* node;
+//        CCARRAY_FOREACH(m_pChildren, child)
+//        {
+//            node = (CCNode*)child;
+//            if (!node->isRunning())
+//            {
+//                node->onEnter();
+//            }
+//        }
+        for (int i=0; i<m_pChildren->count(); i++) {
+            node = (CCNode*)m_pChildren->objectAtIndex(i);
+            if (!node->m_bRunning)
+            {
+                node->onEnter();
+            }
+        }
+    }
+    
+//    this->resumeSchedulerAndActions();
+}
+
+void CCNode::onExit(){
+
+}
+
+//使用插入排序以zorder为关键字排序
+void CCNode::sortAllChildren()
+{
+//    if (m_bReorderChildDirty)
+//    {
+//        int i,j,length = m_pChildren->data->num;
+//        CCNode ** x = (CCNode**)m_pChildren->data->arr;
+//        CCNode *tempItem;
+//        
+//        // insertion sort
+//        for(i=1; i<length; i++)
+//        {
+//            tempItem = x[i];
+//            j = i-1;
+//            
+//            //continue moving element downwards while zOrder is smaller or when zOrder is the same but mutatedIndex is smaller
+//            while(j>=0 && ( tempItem->m_nZOrder < x[j]->m_nZOrder || ( tempItem->m_nZOrder== x[j]->m_nZOrder && tempItem->m_uOrderOfArrival < x[j]->m_uOrderOfArrival ) ) )
+//            {
+//                x[j+1] = x[j];
+//                j = j-1;
+//            }
+//            x[j+1] = tempItem;
+//        }
+//
+    int count = m_pChildren->m_count;
+    CCNode **pArr = (CCNode**)m_pChildren->m_arr;
+    CCNode *k;
+    int j;
+    for (int i=1; i<count; i++) {
+        k = pArr[i];
+        for (j=i-1; j>=0; j--) {
+            if (pArr[j]->m_nZOrder > k->m_nZOrder) {
+                pArr[j+1] = pArr[j];
+            }
+            else{
+                break;
+            }
+        }
+        
+        pArr[j+1] = k;
+    }
+    
+        
+//        m_bReorderChildDirty = false;
+//    }
 }

@@ -55,9 +55,13 @@ int main(int argc, const char * argv[]) {
     glutCreateWindow ("GLO2 2D Game Enginer");
     glEnable(GL_TEXTURE_2D);      // 启用纹理映射
 
-    CCSprite *scene = CCSprite::create("/Users/lewis/Desktop/gl02/Resources/asset/Icon-72@2x.png");
-    scene->setRotation(0);
-    scene->setScale(2);
+    CCSprite *scene = CCSprite::create("/Users/lufei1/Desktop/gl02/Resources/asset/Icon-72@2x.png");
+    CCSprite *child1 = CCSprite::create("/Users/lufei1/Desktop/gl02/Resources/asset/Icon-72@2x.png");
+    child1->setPosition(ccp(100, 200));
+    child1->setScale(2);
+    scene->addChild(child1, 10, 10);
+    scene->setRotation(30);
+    scene->setScale(1);
     scene->setAnchorPoint(ccp(0.5, 0.5));
     scene->setPosition(ccp(340, 240));
     CCDirector::sharedDirector()->runWithScene(scene);

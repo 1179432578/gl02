@@ -12,8 +12,9 @@
 #include "CCGLProgram.h"
 #include "CCGeometry.h"
 #include "Matrix.h"
+#include "CCArray.h"
 
-class CCNode{
+class CCNode : public CCObject{
 public:
     CCNode();
     
@@ -41,6 +42,12 @@ public:
     virtual void setRotation(float fRotation);
     
     virtual Matrix44 nodeToParentTransform(void);
+    
+    virtual void addChild(CCNode* child, int zOrder, int tag);
+    virtual void onEnter();//触发脚本注册事件的回调
+    virtual void onExit();
+    
+    virtual void sortAllChildren();
 public:
     CCGLProgram *m_pShaderProgram;
     
@@ -62,7 +69,15 @@ protected:
     float  m_fRotationY;
     float  m_rotation;//旋转角度 度数
     
+    Matrix44 m_obTransform;//模型变换矩阵
+    
     bool m_bIgnoreAnchorPointForPosition;//默认false
+    
+    bool m_bRunning;//节点调用过了onEnter，被设置为true
+    int m_nZOrder;//渲染循序
+    CCArray *m_pChildren;
+    CCNode *m_pParent;
+    int m_nTag;
 };
 
 #endif /* CCNode_hpp */
