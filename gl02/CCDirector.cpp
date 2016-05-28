@@ -28,13 +28,15 @@ CCDirector* CCDirector::sharedDirector(){
 bool CCDirector::init(void){
 //    setDefaultValues();
     //设置opengl 不用再applicationLaunching中设置了
-    setGLDefaultValues();
+    setOpenGLView();
     
     // scenes
     m_pRunningScene = NULL;
 //    m_pNextScene = NULL;
 //    
 //    m_pNotificationNode = NULL;
+    
+    m_obWinSizeInPoints = CCSizeZero;
     return true;
 }
 
@@ -104,7 +106,7 @@ void CCDirector::drawScene(){
     //    }
 }
 
-void CCDirector::runWithScene(CCSprite *pScene){
+void CCDirector::runWithScene(CCScene *pScene){
     m_pRunningScene = pScene;
 }
 
@@ -116,6 +118,7 @@ void CCDirector::setOpenGLView(){
 //    
 //    // set size
 //    m_obWinSizeInPoints = m_pobOpenGLView->getDesignResolutionSize();
+    m_obWinSizeInPoints = CCSizeMake(640, 480);
 //    
 //    createStatsLabel();
 //    
@@ -178,3 +181,9 @@ void CCDirector::setViewport(){
 //               (GLsizei)(w * m_fScaleX),
 //               (GLsizei)(h * m_fScaleY));
 }
+
+CCSize CCDirector::getWinSize(void)
+{
+    return m_obWinSizeInPoints;
+}
+

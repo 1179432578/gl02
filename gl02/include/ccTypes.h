@@ -6,6 +6,8 @@
 //  Copyright © 2016年 鲁飞. All rights reserved.
 //
 
+//定义一些类型
+
 #ifndef ccTypes_h
 #define ccTypes_h
 

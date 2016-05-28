@@ -104,7 +104,6 @@ void CCNode::visit(){
         
         for(; i < m_pChildren->m_count; i++)
         {
-            printf("%d\n", pNode->m_nZOrder);
             pNode = (CCNode*)arr[i];
             if (pNode)
             {
@@ -291,7 +290,6 @@ void CCNode::addChild(CCNode* child, int zOrder, int tag){
     m_pChildren->addObject(child);
     
     child->m_nZOrder = zOrder;
-    printf("%d\n", child->m_nZOrder);
     child->m_nTag = tag;
     child->m_pParent = this;
 
@@ -387,4 +385,21 @@ void CCNode::sortAllChildren()
         
 //        m_bReorderChildDirty = false;
 //    }
+}
+
+/// contentSize getter
+const CCSize& CCNode::getContentSize() const
+{
+    return m_obContentSize;
+}
+
+void CCNode::setContentSize(const CCSize & size)
+{
+    if (! size.equals(m_obContentSize))
+    {
+        m_obContentSize = size;
+        
+        m_obAnchorPointInPoints = ccp(m_obContentSize.width * m_obAnchorPoint.x, m_obContentSize.height * m_obAnchorPoint.y );
+        //        m_bTransformDirty = m_bInverseDirty = true;
+    }
 }

@@ -48,6 +48,12 @@ public:
     virtual void onExit();
     
     virtual void sortAllChildren();
+    
+    //设置没有变换的大小 All nodes has a size. Layer and Scene has the same size of the screen.
+    virtual void setContentSize(const CCSize& contentSize);
+    //返回没有变换的大小
+    virtual const CCSize& getContentSize() const;
+
 public:
     CCGLProgram *m_pShaderProgram;
     

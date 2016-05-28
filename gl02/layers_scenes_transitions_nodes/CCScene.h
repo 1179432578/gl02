@@ -13,7 +13,12 @@
 
 class CCScene : public CCNode {
 public:
+    CCScene();
+    virtual ~CCScene();
+    
     static CCScene *create(void);
+    
+    bool init();
 };
 
 #endif /* CCScene_hpp */

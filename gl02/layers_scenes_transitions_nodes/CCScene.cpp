@@ -7,9 +7,26 @@
 //
 
 #include "CCScene.h"
+#include "CCDirector.h"
+
+CCScene::CCScene(){
+    m_bIgnoreAnchorPointForPosition = false;
+    m_bIgnoreAnchorPointForPosition = true;
+    setAnchorPoint(ccp(0.5f, 0.5f));
+};
+
+CCScene::~CCScene(){
+};
 
 CCScene *CCScene::create(void){
     CCScene *ret = new CCScene;
+    ret->init();
     
     return ret;
+}
+
+bool CCScene::init(){
+    setContentSize(CCDirector::sharedDirector()->getWinSize());
+    
+    return true;
 }

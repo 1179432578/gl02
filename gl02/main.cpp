@@ -8,6 +8,7 @@
 #include "LCommon.h"
 #include "CCSprite.h"
 #include "CCDirector.h"
+#include <unistd.h>
 
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
@@ -54,16 +55,21 @@ int main(int argc, const char * argv[]) {
     glutInitWindowPosition (1000, 100);
     glutCreateWindow ("GLO2 2D Game Enginer");
     glEnable(GL_TEXTURE_2D);      // 启用纹理映射
-
-    CCSprite *scene = CCSprite::create("/Users/lufei1/Desktop/gl02/Resources/asset/Icon-72@2x.png");
-    CCSprite *child1 = CCSprite::create("/Users/lufei1/Desktop/gl02/Resources/asset/Icon-72@2x.png");
-    child1->setPosition(ccp(100, 200));
-    child1->setScale(2);
-    scene->addChild(child1, 10, 10);
-    scene->setRotation(30);
-    scene->setScale(1);
-    scene->setAnchorPoint(ccp(0.5, 0.5));
-    scene->setPosition(ccp(340, 240));
+    
+    CCScene *scene = CCScene::create();
+    CCSprite *c1 = CCSprite::create("Resources/asset/Icon-72@2x.png");
+    CCSprite *c2 = CCSprite::create("Resources/asset/9.png");
+    scene->addChild(c1, 100, 100);
+    scene->addChild(c2, 10, 10);
+    
+    c1->setPosition(ccp(100, 200));
+    c1->setScale(2);
+    c1->setRotation(-30);
+//    c2->setRotation(30);
+//    c2->setScale(1);
+//    c2->setAnchorPoint(ccp(0.5, 0.5));
+    c2->setPosition(ccp(340, 240));
+    
     CCDirector::sharedDirector()->runWithScene(scene);
     //窗口重绘函数，这里直接提供了一个空函数。创建窗口后、改变窗口大小都会触发重绘。重绘函数为空函数会导致出现白色窗口，
     //我们可以指定绘制一张背景图来消除这个问题。
@@ -77,6 +83,11 @@ int main(int argc, const char * argv[]) {
     
     //指定键盘回调
     glutKeyboardFunc(keyboard);
+    
+    char path[1024];
+    
+    getcwd(path, sizeof(path));
+    printf("cwd: %s\n", path);
     
     //开启opengl事件循环，如果不调用，程序就会直接结束了
     glutMainLoop();

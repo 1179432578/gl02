@@ -27,22 +27,24 @@
 		29F1BA171CBB4CCC007DED42 /* CCGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F1BA151CBB4CCC007DED42 /* CCGeometry.cpp */; };
 		29F31BDA1CF837AE00E4DEDB /* CCArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F31BD81CF837AE00E4DEDB /* CCArray.cpp */; };
 		F606311B1CEB6DC500F87496 /* CCShaderCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60631191CEB6DC500F87496 /* CCShaderCache.cpp */; };
-		F64A5A761CF5F546008BE12C /* asset in Resources */ = {isa = PBXBuildFile; fileRef = F64A5A751CF5F546008BE12C /* asset */; };
 		F6524CA01CC3C3640031019A /* CCNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524C9E1CC3C3640031019A /* CCNode.cpp */; };
 		F6524CA41CC3CD150031019A /* CCDirector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA21CC3CD150031019A /* CCDirector.cpp */; };
 		F6524CA81CC3D1830031019A /* CCScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA61CC3D1830031019A /* CCScene.cpp */; };
-		F6FF03D21CBA9AF50008D770 /* CCSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6FF03D01CBA9AF50008D770 /* CCSprite.mm */; };
+		F6E63D1D1CF977300032E0B3 /* asset in CopyFiles */ = {isa = PBXBuildFile; fileRef = F64A5A751CF5F546008BE12C /* asset */; };
+		F6E63D221CF987BD0032E0B3 /* CCTexture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */; };
+		F6FF03D21CBA9AF50008D770 /* CCSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FF03D01CBA9AF50008D770 /* CCSprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		298D576D1B7448DB00932F06 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = asset;
-			dstSubfolderSpec = 7;
+			buildActionMask = 12;
+			dstPath = Resources;
+			dstSubfolderSpec = 16;
 			files = (
+				F6E63D1D1CF977300032E0B3 /* asset in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -93,7 +95,10 @@
 		F6524CA31CC3CD150031019A /* CCDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDirector.h; sourceTree = "<group>"; };
 		F6524CA61CC3D1830031019A /* CCScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScene.cpp; sourceTree = "<group>"; };
 		F6524CA71CC3D1830031019A /* CCScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScene.h; sourceTree = "<group>"; };
-		F6FF03D01CBA9AF50008D770 /* CCSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCSprite.mm; sourceTree = "<group>"; };
+		F6E63D1E1CF97ED30032E0B3 /* ccMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccMacros.h; sourceTree = "<group>"; };
+		F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CCTexture2D.mm; path = textures/CCTexture2D.mm; sourceTree = "<group>"; };
+		F6E63D211CF987BD0032E0B3 /* CCTexture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTexture2D.h; path = textures/CCTexture2D.h; sourceTree = "<group>"; };
+		F6FF03D01CBA9AF50008D770 /* CCSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSprite.cpp; sourceTree = "<group>"; };
 		F6FF03D11CBA9AF50008D770 /* CCSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSprite.h; sourceTree = "<group>"; };
 		F6FF03D51CBAB1C20008D770 /* ccTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,14 +154,15 @@
 		298D57711B7448DB00932F06 /* gl02 */ = {
 			isa = PBXGroup;
 			children = (
+				F6E63D1F1CF987670032E0B3 /* textures */,
 				29EF1CEA1CF2D6A0004FCB2E /* matrix_transform */,
 				29F157D21CEC013400724865 /* data_types */,
-				F6524CA51CC3D16B0031019A /* layers_scenes_transitions_nodes */,
-				29F1BA0B1CBB3A53007DED42 /* shaders */,
 				F6FF03D41CBAB1AE0008D770 /* include */,
-				F6FF03CE1CBA9AC20008D770 /* sprite_nodes */,
-				F6524C9D1CC3C30F0031019A /* base_nodes */,
 				295FCCF01CB78703003CB20F /* cocoa */,
+				29F1BA0B1CBB3A53007DED42 /* shaders */,
+				F6524C9D1CC3C30F0031019A /* base_nodes */,
+				F6524CA51CC3D16B0031019A /* layers_scenes_transitions_nodes */,
+				F6FF03CE1CBA9AC20008D770 /* sprite_nodes */,
 				298D57721B7448DB00932F06 /* main.cpp */,
 				29A65CE31B78A15D00B8CD0D /* LCommon.h */,
 				F6524CA21CC3CD150031019A /* CCDirector.cpp */,
@@ -255,10 +261,19 @@
 			path = layers_scenes_transitions_nodes;
 			sourceTree = "<group>";
 		};
+		F6E63D1F1CF987670032E0B3 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */,
+				F6E63D211CF987BD0032E0B3 /* CCTexture2D.h */,
+			);
+			name = textures;
+			sourceTree = "<group>";
+		};
 		F6FF03CE1CBA9AC20008D770 /* sprite_nodes */ = {
 			isa = PBXGroup;
 			children = (
-				F6FF03D01CBA9AF50008D770 /* CCSprite.mm */,
+				F6FF03D01CBA9AF50008D770 /* CCSprite.cpp */,
 				F6FF03D11CBA9AF50008D770 /* CCSprite.h */,
 			);
 			path = sprite_nodes;
@@ -268,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				F6FF03D51CBAB1C20008D770 /* ccTypes.h */,
+				F6E63D1E1CF97ED30032E0B3 /* ccMacros.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -329,7 +345,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F64A5A761CF5F546008BE12C /* asset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +355,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6FF03D21CBA9AF50008D770 /* CCSprite.cpp in Sources */,
 				29EF1CFA1CF2F64E004FCB2E /* Vector3.cpp in Sources */,
+				F6E63D221CF987BD0032E0B3 /* CCTexture2D.mm in Sources */,
 				29F31BDA1CF837AE00E4DEDB /* CCArray.cpp in Sources */,
 				29EF1CF91CF2F626004FCB2E /* matrix_transform.cpp in Sources */,
 				29EF1CF81CF2E569004FCB2E /* Matrix.cpp in Sources */,
@@ -353,7 +370,6 @@
 				29F157DB1CEC013400724865 /* MutableData.cpp in Sources */,
 				29F1BA111CBB3D54007DED42 /* ccShaders.cpp in Sources */,
 				295FCCF31CB78746003CB20F /* CCPoint.cpp in Sources */,
-				F6FF03D21CBA9AF50008D770 /* CCSprite.mm in Sources */,
 				298D57731B7448DB00932F06 /* main.cpp in Sources */,
 				29EF1CF61CF2DDC6004FCB2E /* MatrixStack.cpp in Sources */,
 				29DAD7691CEC1E08001F8970 /* CCObject.cpp in Sources */,

@@ -7,6 +7,8 @@
 //
 
 #include "CCGeometry.h"
+#include "ccMacros.h"
+#include <math.h>
 
 
 // implementation of CCRect
@@ -46,4 +48,10 @@ CCSize::CCSize(void) : width(0), height(0)
 
 CCSize::CCSize(float width, float height) : width(width), height(height)
 {
+}
+
+bool CCSize::equals(const CCSize& target) const
+{
+    return (fabs(this->width  - target.width)  < FLT_EPSILON)
+    && (fabs(this->height - target.height) < FLT_EPSILON);
 }

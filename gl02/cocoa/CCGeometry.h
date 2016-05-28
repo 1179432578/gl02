@@ -20,7 +20,8 @@ public:
 public:
     CCSize();
     CCSize(float width, float height);
-
+    
+    bool equals(const CCSize& target) const;
 };
 
 class CCRect

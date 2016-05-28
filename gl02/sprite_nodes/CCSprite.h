@@ -13,40 +13,23 @@
 #include "CCPoint.h"
 #include "ccTypes.h"
 #include "CCNode.h"
+#include "CCTexture2D.h"
 
 class CCSprite : public CCNode{
 public:
-    int m_height;
-    int m_width;
-    float posX;
-    float posY;
+    /*精灵创建的三种方法:用图片、用纹理、用精灵帧
+     *对应的有3种初始化方法,最终都用到纹理初始化
+     */
     
-    GLuint m_tex; //纹理id
-    
-    GLuint m_program;   //着色程序
-    
-    //    矩形四个角坐标
-    //    平移向量
-    //    旋转
-    //    缩放
-    //    位置 旋转 缩放中心
-    
-    
-    
-    //    创建节点
+    //指定图片创建精灵
     static CCSprite * create(const char *filename);
-
+    bool initWithFile(const char *filename);
+    bool initWithTexture(CCTexture2D *pTexture, const CCRect& rect, bool rotated);
+   
     virtual void draw();
-    
-//    void setShaderPrograma();
-    
-//    初始化 初始化变量以及着色程序
-    void initWithFile(const char *filename);
-    
     
     //    void setRotation(float fRotation);
     //    float getRotation();
-    //
     //    void setScale(float scale);
     //    float getScale();
     
@@ -57,6 +40,15 @@ public:
     GLuint            m_uVertShader;
     GLuint            m_uFragShader;
     GLint             m_mvp;
+    
+    int m_height;
+    int m_width;
+    float posX;
+    float posY;
+    
+    CCTexture2D*       m_pobTexture;
+    GLuint m_tex; //纹理id
+    GLuint m_program;   //着色程序
     
     //纹理大小
     CCRect m_obRect;

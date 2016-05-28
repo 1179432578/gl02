@@ -40,7 +40,7 @@ public:
     //绘制场景 每帧被调用
     void drawScene();
     
-    void runWithScene(CCSprite *pScene);
+    void runWithScene(CCScene *pScene);
     
 //    void setProjection(ccDirectorProjection kProjection);
     //设置观察与透视投影矩阵
@@ -55,9 +55,13 @@ public:
     
     /** sets the OpenGL default values */
     void setGLDefaultValues(void);
-
+    
+    CCSize m_obWinSizeInPoints;//窗口大小
+    
+    CCSize getWinSize(void);//返回窗口大小
+   
 private:
-    CCSprite *m_pRunningScene;
+    CCScene *m_pRunningScene;
 };
 
 #endif /* CCDirector_hpp */
