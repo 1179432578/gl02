@@ -30,6 +30,8 @@
 		F6524CA01CC3C3640031019A /* CCNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524C9E1CC3C3640031019A /* CCNode.cpp */; };
 		F6524CA41CC3CD150031019A /* CCDirector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA21CC3CD150031019A /* CCDirector.cpp */; };
 		F6524CA81CC3D1830031019A /* CCScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA61CC3D1830031019A /* CCScene.cpp */; };
+		F65E778C1CFAA4FC00B2F7AA /* CCScheduler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E778A1CFAA4FC00B2F7AA /* CCScheduler.cpp */; };
+		F65E77901CFAB72700B2F7AA /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E778E1CFAB72700B2F7AA /* List.cpp */; };
 		F6E63D1D1CF977300032E0B3 /* asset in CopyFiles */ = {isa = PBXBuildFile; fileRef = F64A5A751CF5F546008BE12C /* asset */; };
 		F6E63D221CF987BD0032E0B3 /* CCTexture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */; };
 		F6FF03D21CBA9AF50008D770 /* CCSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FF03D01CBA9AF50008D770 /* CCSprite.cpp */; };
@@ -95,6 +97,10 @@
 		F6524CA31CC3CD150031019A /* CCDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDirector.h; sourceTree = "<group>"; };
 		F6524CA61CC3D1830031019A /* CCScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScene.cpp; sourceTree = "<group>"; };
 		F6524CA71CC3D1830031019A /* CCScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScene.h; sourceTree = "<group>"; };
+		F65E778A1CFAA4FC00B2F7AA /* CCScheduler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScheduler.cpp; sourceTree = "<group>"; };
+		F65E778B1CFAA4FC00B2F7AA /* CCScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScheduler.h; sourceTree = "<group>"; };
+		F65E778E1CFAB72700B2F7AA /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
+		F65E778F1CFAB72700B2F7AA /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		F6E63D1E1CF97ED30032E0B3 /* ccMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccMacros.h; sourceTree = "<group>"; };
 		F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CCTexture2D.mm; path = textures/CCTexture2D.mm; sourceTree = "<group>"; };
 		F6E63D211CF987BD0032E0B3 /* CCTexture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTexture2D.h; path = textures/CCTexture2D.h; sourceTree = "<group>"; };
@@ -167,6 +173,8 @@
 				29A65CE31B78A15D00B8CD0D /* LCommon.h */,
 				F6524CA21CC3CD150031019A /* CCDirector.cpp */,
 				F6524CA31CC3CD150031019A /* CCDirector.h */,
+				F65E778A1CFAA4FC00B2F7AA /* CCScheduler.cpp */,
+				F65E778B1CFAA4FC00B2F7AA /* CCScheduler.h */,
 			);
 			path = gl02;
 			sourceTree = "<group>";
@@ -205,6 +213,8 @@
 				29F157D61CEC013400724865 /* HashTable.h */,
 				29F157D71CEC013400724865 /* MutableData.cpp */,
 				29F157D81CEC013400724865 /* MutableData.h */,
+				F65E778E1CFAB72700B2F7AA /* List.cpp */,
+				F65E778F1CFAB72700B2F7AA /* List.h */,
 			);
 			path = data_types;
 			sourceTree = "<group>";
@@ -368,6 +378,7 @@
 				F6524CA81CC3D1830031019A /* CCScene.cpp in Sources */,
 				F6524CA41CC3CD150031019A /* CCDirector.cpp in Sources */,
 				29F157DB1CEC013400724865 /* MutableData.cpp in Sources */,
+				F65E778C1CFAA4FC00B2F7AA /* CCScheduler.cpp in Sources */,
 				29F1BA111CBB3D54007DED42 /* ccShaders.cpp in Sources */,
 				295FCCF31CB78746003CB20F /* CCPoint.cpp in Sources */,
 				298D57731B7448DB00932F06 /* main.cpp in Sources */,
@@ -376,6 +387,7 @@
 				F606311B1CEB6DC500F87496 /* CCShaderCache.cpp in Sources */,
 				29F1BA171CBB4CCC007DED42 /* CCGeometry.cpp in Sources */,
 				F6524CA01CC3C3640031019A /* CCNode.cpp in Sources */,
+				F65E77901CFAB72700B2F7AA /* List.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

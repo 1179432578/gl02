@@ -40,7 +40,7 @@ public:
     
 //    virtual void acceptVisitor(CCDataVisitor &visitor);
     
-//    virtual void update(float dt) {CC_UNUSED_PARAM(dt);};
+    virtual void update(float dt) {};
     
 //    friend class CCAutoreleasePool;
 };

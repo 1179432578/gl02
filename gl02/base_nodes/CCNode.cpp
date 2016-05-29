@@ -343,35 +343,14 @@ void CCNode::onExit(){
 //使用插入排序以zorder为关键字排序
 void CCNode::sortAllChildren()
 {
-//    if (m_bReorderChildDirty)
-//    {
-//        int i,j,length = m_pChildren->data->num;
-//        CCNode ** x = (CCNode**)m_pChildren->data->arr;
-//        CCNode *tempItem;
-//        
-//        // insertion sort
-//        for(i=1; i<length; i++)
-//        {
-//            tempItem = x[i];
-//            j = i-1;
-//            
-//            //continue moving element downwards while zOrder is smaller or when zOrder is the same but mutatedIndex is smaller
-//            while(j>=0 && ( tempItem->m_nZOrder < x[j]->m_nZOrder || ( tempItem->m_nZOrder== x[j]->m_nZOrder && tempItem->m_uOrderOfArrival < x[j]->m_uOrderOfArrival ) ) )
-//            {
-//                x[j+1] = x[j];
-//                j = j-1;
-//            }
-//            x[j+1] = tempItem;
-//        }
-//
     int count = m_pChildren->m_count;
-    CCNode **pArr = (CCNode**)m_pChildren->m_arr;
+    CCObject **pArr = m_pChildren->m_arr;
     CCNode *k;
     int j;
     for (int i=1; i<count; i++) {
-        k = pArr[i];
+        k = (CCNode*)pArr[i];
         for (j=i-1; j>=0; j--) {
-            if (pArr[j]->m_nZOrder > k->m_nZOrder) {
+            if (((CCNode*)(pArr[j]))->m_nZOrder > k->m_nZOrder) {
                 pArr[j+1] = pArr[j];
             }
             else{
@@ -381,10 +360,6 @@ void CCNode::sortAllChildren()
         
         pArr[j+1] = k;
     }
-    
-        
-//        m_bReorderChildDirty = false;
-//    }
 }
 
 /// contentSize getter

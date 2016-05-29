@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
     
     CCScene *scene = CCScene::create();
     CCSprite *c1 = CCSprite::create("Resources/asset/Icon-72@2x.png");
-    CCSprite *c2 = CCSprite::create("Resources/asset/9.png");
+    CCSprite *c2 = CCSprite::create("Resources/asset/Icon-72@2x.png");
     scene->addChild(c1, 100, 100);
     scene->addChild(c2, 10, 10);
     

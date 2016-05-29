@@ -10,6 +10,7 @@
 #define CCDirector_hpp
 #include "CCScene.h"
 #include "CCSprite.h"
+#include "CCScheduler.h"
 
 typedef enum {
     /// sets a 2D projection (orthogonal projection)
@@ -60,8 +61,17 @@ public:
     
     CCSize getWinSize(void);//返回窗口大小
    
+    void calculateDeltaTime();
 private:
     CCScene *m_pRunningScene;
+    
+    CCScheduler *m_pScheduler;
+    
+    float m_fDeltaTime;//帧间隔
+    
+    float m_fLastUpdateTime;
+    
+    bool m_bNextDeltaTimeZero;
 };
 
 #endif /* CCDirector_hpp */

@@ -36,7 +36,26 @@ bool CCDirector::init(void){
 //    
 //    m_pNotificationNode = NULL;
     
+    // FPS
+//    m_fAccumDt = 0.0f;
+//    m_fFrameRate = 0.0f;
+//    m_pFPSLabel = NULL;
+//    m_pSPFLabel = NULL;
+//    m_pDrawsLabel = NULL;
+//    m_uTotalFrames = m_uFrames = 0;
+//    m_pszFPS = new char[10];
+    m_fLastUpdateTime = 1.0f * clock() / CLOCKS_PER_SEC;
+    m_bNextDeltaTimeZero = false;
+    
+    // paused ?
+//    m_bPaused = false;
+    
     m_obWinSizeInPoints = CCSizeZero;
+    
+    // scheduler
+    m_pScheduler = new CCScheduler();
+    
+    
     return true;
 }
 
@@ -53,12 +72,11 @@ void CCDirector::drawScene(){
     //    calculate global delta time m_fDeltaTime
     //    calculateDeltaTime();
     
-    //    调度器更新
-    //    更新每个节点注册的调度动作 CCMoveTo CCScaleTo and so on
-    //    m_pScheduler->update(m_fDeltaTime);
+    //执行调度，更新每个节点注册的调度动作 CCMoveTo CCScaleTo and so on
+    m_pScheduler->update(m_fDeltaTime);
     
-    //    clear buffers to preset values
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //clear buffers to preset values
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //    如果有要进入下个场景  就设置当前场景为下个场景 nice
     //    if (m_pNextScene)
@@ -66,15 +84,11 @@ void CCDirector::drawScene(){
     //        setNextScene();
     //    }
     
-    //    // draw the scene
-        if (m_pRunningScene)
-        {
-    //    这个将遍历场景中所有节点的visit，-------------------visit方法会设置自己节点当前矩阵(非常重要)。
-    //    kmGLPushMatrix/kmGLPopMatrix保持了子节点使用到父节点的矩阵，而且保护了父节点的矩阵(非常重要)
-    //    它先遍历zorder小于0的visit，再draw(这个是绘制自己)，然后在遍历zorde大于0的visit
-    //    上面就是场景被每一帧渲染的方法
-            m_pRunningScene->visit();
-        }
+    //draw the scene
+    if (m_pRunningScene)
+    {
+        m_pRunningScene->visit();
+    }
 
     //
     //    // draw the notifications node
@@ -187,3 +201,14 @@ CCSize CCDirector::getWinSize(void)
     return m_obWinSizeInPoints;
 }
 
+void CCDirector::calculateDeltaTime(void)
+{
+    float currentTime = 1.0f * clock() / CLOCKS_PER_SEC;
+    m_fDeltaTime = currentTime - m_fLastUpdateTime;
+    m_fLastUpdateTime = currentTime;
+    
+    if (m_bNextDeltaTimeZero) {
+        m_fDeltaTime = 0.0f;
+        m_bNextDeltaTimeZero = false;
+    }
+}
