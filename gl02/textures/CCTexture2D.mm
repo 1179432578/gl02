@@ -34,6 +34,8 @@ bool CCTexture2D::initWithImage(const char *filename){
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, m_uName);
     
+//    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+    
     //纹理参数设置
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
@@ -41,7 +43,7 @@ bool CCTexture2D::initWithImage(const char *filename){
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
     
     //设置纹理数据
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_uHeight, m_uWidth, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_uWidth, m_uHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
     
     //释放图片像素数据， 纹理已经保存在显存中，渲染时gpu直接对纹理操作，图片数据不再需要保存在内存中了
     free((void*)data);

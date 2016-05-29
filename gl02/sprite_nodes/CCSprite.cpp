@@ -21,6 +21,8 @@ void CCSprite::draw(){
     getShaderProgram()->setUniformsForBuiltins();
     
     //    进行混合
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     //    绑定激活纹理
     //    现在没有用了  必需设置shader program了(opengl 2.0 is cool)
