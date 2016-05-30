@@ -13,6 +13,7 @@
 #include <math.h>
 
 
+
  static CCDirector *s_SharedDirector = NULL;
 
 //获得CCDirector实例
@@ -54,6 +55,10 @@ bool CCDirector::init(void){
     
     // scheduler
     m_pScheduler = new CCScheduler();
+    // action manager
+    m_pActionManager = new CCActionManager();
+//    m_pScheduler->scheduleUpdateForTarget(m_pActionManager, INT32_MIN, false);//优先级越小，越先处理
+    m_pScheduler->scheduleUpdateForTarget(m_pActionManager, 0, false);//优先级越小，越先处理
     
     
     return true;
@@ -70,7 +75,7 @@ void CCDirector::mainLoop(){
 //绘制场景 每帧被调用
 void CCDirector::drawScene(){
     //    calculate global delta time m_fDeltaTime
-    //    calculateDeltaTime();
+    calculateDeltaTime();
     
     //执行调度，更新每个节点注册的调度动作 CCMoveTo CCScaleTo and so on
     m_pScheduler->update(m_fDeltaTime);
@@ -211,4 +216,9 @@ void CCDirector::calculateDeltaTime(void)
         m_fDeltaTime = 0.0f;
         m_bNextDeltaTimeZero = false;
     }
+}
+
+CCActionManager* CCDirector::getActionManager()
+{
+    return m_pActionManager;
 }

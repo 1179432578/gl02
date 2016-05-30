@@ -9,6 +9,8 @@
 #include "CCSprite.h"
 #include "CCDirector.h"
 #include <unistd.h>
+#include "CCAction.h"
+#include "CCActionInterval.h"
 
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
@@ -58,6 +60,9 @@ int main(int argc, const char * argv[]) {
     
     CCScene *scene = CCScene::create();
     CCSprite *c1 = CCSprite::create("Resources/asset/Icon-72@2x.png");
+    CCAction *action = CCMoveBy::create(10, ccp(300, 300));
+    c1->runAction(action);
+    
     CCSprite *c2 = CCSprite::create("Resources/asset/9.png");
     scene->addChild(c1, 100, 100);
     scene->addChild(c2, 10, 10);

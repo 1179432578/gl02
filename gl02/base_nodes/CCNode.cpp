@@ -10,6 +10,8 @@
 #include "Matrix.h"
 #include "mglMatrix.h"
 #include <math.h>
+#include "CCDirector.h"
+#include "CCActionManager.h"
 
 CCNode::CCNode()
 : m_fRotationX(0.0f)
@@ -26,6 +28,8 @@ CCNode::CCNode()
 ,m_bIgnoreAnchorPointForPosition(false)
 ,m_pChildren(NULL)
 {
+    CCDirector *director = CCDirector::sharedDirector();
+    m_pActionManager = director->getActionManager();
 }
 
 CCNode::~CCNode(){
@@ -377,4 +381,12 @@ void CCNode::setContentSize(const CCSize & size)
         m_obAnchorPointInPoints = ccp(m_obContentSize.width * m_obAnchorPoint.x, m_obContentSize.height * m_obAnchorPoint.y );
         //        m_bTransformDirty = m_bInverseDirty = true;
     }
+}
+
+//为节点添加动作到动作管理器
+CCAction * CCNode::runAction(CCAction* action)
+{
+//    CCAssert( action != NULL, "Argument must be non-nil");
+    m_pActionManager->addAction(action, this, !m_bRunning);
+    return action;
 }

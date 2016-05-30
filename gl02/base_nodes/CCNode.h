@@ -14,6 +14,9 @@
 #include "Matrix.h"
 #include "CCArray.h"
 
+class CCAction;
+class CCActionManager;
+
 class CCNode : public CCObject{
 public:
     CCNode();
@@ -53,6 +56,8 @@ public:
     virtual void setContentSize(const CCSize& contentSize);
     //返回没有变换的大小
     virtual const CCSize& getContentSize() const;
+    
+    CCAction* runAction(CCAction* action);
 
 public:
     CCGLProgram *m_pShaderProgram;
@@ -84,6 +89,8 @@ protected:
     CCArray *m_pChildren;
     CCNode *m_pParent;
     int m_nTag;
+    
+    CCActionManager *m_pActionManager;
 };
 
 #endif /* CCNode_hpp */

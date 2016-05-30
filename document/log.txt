@@ -18,3 +18,10 @@
 测试：渲染正常
 不足：CCTexture2D直接由图片创建，后面实现CCImage、png图片解析
 改进：
+
+日期：2016/5/30
+功能：增加CCAction CCFinateTimeAction CCActionInterval CCMoveBy CCActionManager
+重点：
+测试：渲染正常
+不足：CCActionManager还需要进一步实现
+改进：

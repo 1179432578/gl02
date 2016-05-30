@@ -62,3 +62,42 @@ void CCActionInterval::startWithTarget(CCNode *pTarget){
     m_elapsed = 0.0f;
     m_bFirstTick = true;
 }
+
+CCMoveBy* CCMoveBy::create(float duration, const CCPoint& deltaPosition){
+    CCMoveBy *ret = new CCMoveBy;
+    ret->initWithDuration(duration, deltaPosition);
+    
+    return ret;
+}
+
+bool CCMoveBy::initWithDuration(float duration, const CCPoint& deltaPosition){
+    if (CCActionInterval::initWithDuration(duration))
+    {
+        m_positionDelta = deltaPosition;
+        return true;
+    }
+    
+    return false;
+}
+
+
+void CCMoveBy::startWithTarget(CCNode *pTarget){
+    CCActionInterval::startWithTarget(pTarget);
+    m_previousPosition = m_startPosition = pTarget->getPosition();
+}
+
+void CCMoveBy::update(float t){
+    if (m_pTarget)//动作目标
+    {
+//#if CC_ENABLE_STACKABLE_ACTIONS
+//        CCPoint currentPos = m_pTarget->getPosition();
+//        CCPoint diff = ccpSub(currentPos, m_previousPosition);
+//        m_startPosition = ccpAdd( m_startPosition, diff);
+//        CCPoint newPos =  ccpAdd( m_startPosition, ccpMult(m_positionDelta, t) );
+//        m_pTarget->setPosition(newPos);
+//        m_previousPosition = newPos;
+//#else
+        m_pTarget->setPosition(ccpAdd( m_startPosition, ccpMult(m_positionDelta, t)));
+//#endif // CC_ENABLE_STACKABLE_ACTIONS
+    }
+}

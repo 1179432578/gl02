@@ -34,6 +34,7 @@
 		F6524CA81CC3D1830031019A /* CCScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA61CC3D1830031019A /* CCScene.cpp */; };
 		F65E778C1CFAA4FC00B2F7AA /* CCScheduler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E778A1CFAA4FC00B2F7AA /* CCScheduler.cpp */; };
 		F65E77901CFAB72700B2F7AA /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E778E1CFAB72700B2F7AA /* List.cpp */; };
+		F676CC1E1CFC7CD5003C471E /* CCActionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F676CC1C1CFC7CD5003C471E /* CCActionManager.cpp */; };
 		F6E63D1D1CF977300032E0B3 /* asset in CopyFiles */ = {isa = PBXBuildFile; fileRef = F64A5A751CF5F546008BE12C /* asset */; };
 		F6E63D221CF987BD0032E0B3 /* CCTexture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */; };
 		F6FF03D21CBA9AF50008D770 /* CCSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FF03D01CBA9AF50008D770 /* CCSprite.cpp */; };
@@ -107,6 +108,8 @@
 		F65E778B1CFAA4FC00B2F7AA /* CCScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScheduler.h; sourceTree = "<group>"; };
 		F65E778E1CFAB72700B2F7AA /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
 		F65E778F1CFAB72700B2F7AA /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		F676CC1C1CFC7CD5003C471E /* CCActionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCActionManager.cpp; path = actions/CCActionManager.cpp; sourceTree = "<group>"; };
+		F676CC1D1CFC7CD5003C471E /* CCActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActionManager.h; path = actions/CCActionManager.h; sourceTree = "<group>"; };
 		F6E63D1E1CF97ED30032E0B3 /* ccMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccMacros.h; sourceTree = "<group>"; };
 		F6E63D201CF987BD0032E0B3 /* CCTexture2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CCTexture2D.mm; path = textures/CCTexture2D.mm; sourceTree = "<group>"; };
 		F6E63D211CF987BD0032E0B3 /* CCTexture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTexture2D.h; path = textures/CCTexture2D.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				29F60A9C1CFC3A67009829B1 /* CCAction.h */,
 				29F60A9E1CFC4747009829B1 /* CCActionInterval.cpp */,
 				29F60A9F1CFC4747009829B1 /* CCActionInterval.h */,
+				F676CC1C1CFC7CD5003C471E /* CCActionManager.cpp */,
+				F676CC1D1CFC7CD5003C471E /* CCActionManager.h */,
 			);
 			name = actions;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				29EF1CF91CF2F626004FCB2E /* matrix_transform.cpp in Sources */,
 				29EF1CF81CF2E569004FCB2E /* Matrix.cpp in Sources */,
 				29F1BA0E1CBB3A71007DED42 /* CCGLProgram.cpp in Sources */,
+				F676CC1E1CFC7CD5003C471E /* CCActionManager.cpp in Sources */,
 				29F157D91CEC013400724865 /* CCDictionary.cpp in Sources */,
 				29F157DA1CEC013400724865 /* HashTable.cpp in Sources */,
 				29EF1CF31CF2D6FD004FCB2E /* mglMatrix.cpp in Sources */,
