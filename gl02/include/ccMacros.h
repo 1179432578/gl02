@@ -15,4 +15,12 @@
 #define FLT_EPSILON     1.192092896e-07F
 #endif // FLT_EPSILON
 
+#ifndef MIN
+#define MIN(x,y) (((x) > (y)) ? (y) : (x))
+#endif  // MIN
+
+#ifndef MAX
+#define MAX(x,y) (((x) < (y)) ? (y) : (x))
+#endif  // MAX
+
 #endif /* ccMacros_h */

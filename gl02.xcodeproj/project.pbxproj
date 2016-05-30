@@ -26,6 +26,8 @@
 		29F1BA111CBB3D54007DED42 /* ccShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F1BA0F1CBB3D54007DED42 /* ccShaders.cpp */; };
 		29F1BA171CBB4CCC007DED42 /* CCGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F1BA151CBB4CCC007DED42 /* CCGeometry.cpp */; };
 		29F31BDA1CF837AE00E4DEDB /* CCArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F31BD81CF837AE00E4DEDB /* CCArray.cpp */; };
+		29F60A9D1CFC3A67009829B1 /* CCAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F60A9B1CFC3A67009829B1 /* CCAction.cpp */; };
+		29F60AA01CFC4747009829B1 /* CCActionInterval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F60A9E1CFC4747009829B1 /* CCActionInterval.cpp */; };
 		F606311B1CEB6DC500F87496 /* CCShaderCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60631191CEB6DC500F87496 /* CCShaderCache.cpp */; };
 		F6524CA01CC3C3640031019A /* CCNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524C9E1CC3C3640031019A /* CCNode.cpp */; };
 		F6524CA41CC3CD150031019A /* CCDirector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6524CA21CC3CD150031019A /* CCDirector.cpp */; };
@@ -88,6 +90,10 @@
 		29F1BA161CBB4CCC007DED42 /* CCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCGeometry.h; path = cocoa/CCGeometry.h; sourceTree = "<group>"; };
 		29F31BD81CF837AE00E4DEDB /* CCArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCArray.cpp; path = cocoa/CCArray.cpp; sourceTree = "<group>"; };
 		29F31BD91CF837AE00E4DEDB /* CCArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCArray.h; path = cocoa/CCArray.h; sourceTree = "<group>"; };
+		29F60A9B1CFC3A67009829B1 /* CCAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCAction.cpp; path = actions/CCAction.cpp; sourceTree = "<group>"; };
+		29F60A9C1CFC3A67009829B1 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = actions/CCAction.h; sourceTree = "<group>"; };
+		29F60A9E1CFC4747009829B1 /* CCActionInterval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCActionInterval.cpp; path = actions/CCActionInterval.cpp; sourceTree = "<group>"; };
+		29F60A9F1CFC4747009829B1 /* CCActionInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActionInterval.h; path = actions/CCActionInterval.h; sourceTree = "<group>"; };
 		F60631191CEB6DC500F87496 /* CCShaderCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCShaderCache.cpp; sourceTree = "<group>"; };
 		F606311A1CEB6DC500F87496 /* CCShaderCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCShaderCache.h; sourceTree = "<group>"; };
 		F64A5A751CF5F546008BE12C /* asset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = asset; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 		298D57711B7448DB00932F06 /* gl02 */ = {
 			isa = PBXGroup;
 			children = (
+				29F60A9A1CFC3A16009829B1 /* actions */,
 				F6E63D1F1CF987670032E0B3 /* textures */,
 				29EF1CEA1CF2D6A0004FCB2E /* matrix_transform */,
 				29F157D21CEC013400724865 /* data_types */,
@@ -232,6 +239,17 @@
 				F606311A1CEB6DC500F87496 /* CCShaderCache.h */,
 			);
 			path = shaders;
+			sourceTree = "<group>";
+		};
+		29F60A9A1CFC3A16009829B1 /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				29F60A9B1CFC3A67009829B1 /* CCAction.cpp */,
+				29F60A9C1CFC3A67009829B1 /* CCAction.h */,
+				29F60A9E1CFC4747009829B1 /* CCActionInterval.cpp */,
+				29F60A9F1CFC4747009829B1 /* CCActionInterval.h */,
+			);
+			name = actions;
 			sourceTree = "<group>";
 		};
 		F64A5A6B1CF5F52F008BE12C /* Resources */ = {
@@ -375,6 +393,7 @@
 				29F157D91CEC013400724865 /* CCDictionary.cpp in Sources */,
 				29F157DA1CEC013400724865 /* HashTable.cpp in Sources */,
 				29EF1CF31CF2D6FD004FCB2E /* mglMatrix.cpp in Sources */,
+				29F60AA01CFC4747009829B1 /* CCActionInterval.cpp in Sources */,
 				F6524CA81CC3D1830031019A /* CCScene.cpp in Sources */,
 				F6524CA41CC3CD150031019A /* CCDirector.cpp in Sources */,
 				29F157DB1CEC013400724865 /* MutableData.cpp in Sources */,
@@ -382,6 +401,7 @@
 				29F1BA111CBB3D54007DED42 /* ccShaders.cpp in Sources */,
 				295FCCF31CB78746003CB20F /* CCPoint.cpp in Sources */,
 				298D57731B7448DB00932F06 /* main.cpp in Sources */,
+				29F60A9D1CFC3A67009829B1 /* CCAction.cpp in Sources */,
 				29EF1CF61CF2DDC6004FCB2E /* MatrixStack.cpp in Sources */,
 				29DAD7691CEC1E08001F8970 /* CCObject.cpp in Sources */,
 				F606311B1CEB6DC500F87496 /* CCShaderCache.cpp in Sources */,
