@@ -12,6 +12,7 @@
 		29A65CDE1B789B3100B8CD0D /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A65CDC1B789B3100B8CD0D /* GLUT.framework */; };
 		29A65CDF1B789B3100B8CD0D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A65CDD1B789B3100B8CD0D /* OpenGL.framework */; };
 		29DAD7691CEC1E08001F8970 /* CCObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29DAD7671CEC1E08001F8970 /* CCObject.cpp */; };
+		29DB3FDC1CFD2C5E00D3CAC7 /* GLView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29DB3FDA1CFD2C5E00D3CAC7 /* GLView.cpp */; };
 		29E84C551CB3BB1100660A74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E84C541CB3BB1100660A74 /* Foundation.framework */; };
 		29E84C561CB3BB1E00660A74 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E84C521CB3BAFE00660A74 /* AppKit.framework */; };
 		29EF1CF31CF2D6FD004FCB2E /* mglMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1CF11CF2D6FD004FCB2E /* mglMatrix.cpp */; };
@@ -63,6 +64,8 @@
 		29A65CE31B78A15D00B8CD0D /* LCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCommon.h; sourceTree = "<group>"; };
 		29DAD7671CEC1E08001F8970 /* CCObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCObject.cpp; path = cocoa/CCObject.cpp; sourceTree = "<group>"; };
 		29DAD7681CEC1E08001F8970 /* CCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCObject.h; path = cocoa/CCObject.h; sourceTree = "<group>"; };
+		29DB3FDA1CFD2C5E00D3CAC7 /* GLView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLView.cpp; path = opengl_view/GLView.cpp; sourceTree = "<group>"; };
+		29DB3FDB1CFD2C5E00D3CAC7 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = opengl_view/GLView.h; sourceTree = "<group>"; };
 		29E84C521CB3BAFE00660A74 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		29E84C541CB3BB1100660A74 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		29EF1CEB1CF2D6A0004FCB2E /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 		298D57711B7448DB00932F06 /* gl02 */ = {
 			isa = PBXGroup;
 			children = (
+				29DB3FD91CFD2C0000D3CAC7 /* opengl_view */,
 				29F60A9A1CFC3A16009829B1 /* actions */,
 				F6E63D1F1CF987670032E0B3 /* textures */,
 				29EF1CEA1CF2D6A0004FCB2E /* matrix_transform */,
@@ -187,6 +191,15 @@
 				F65E778B1CFAA4FC00B2F7AA /* CCScheduler.h */,
 			);
 			path = gl02;
+			sourceTree = "<group>";
+		};
+		29DB3FD91CFD2C0000D3CAC7 /* opengl_view */ = {
+			isa = PBXGroup;
+			children = (
+				29DB3FDA1CFD2C5E00D3CAC7 /* GLView.cpp */,
+				29DB3FDB1CFD2C5E00D3CAC7 /* GLView.h */,
+			);
+			name = opengl_view;
 			sourceTree = "<group>";
 		};
 		29EF1CEA1CF2D6A0004FCB2E /* matrix_transform */ = {
@@ -405,6 +418,7 @@
 				29F157DB1CEC013400724865 /* MutableData.cpp in Sources */,
 				F65E778C1CFAA4FC00B2F7AA /* CCScheduler.cpp in Sources */,
 				29F1BA111CBB3D54007DED42 /* ccShaders.cpp in Sources */,
+				29DB3FDC1CFD2C5E00D3CAC7 /* GLView.cpp in Sources */,
 				295FCCF31CB78746003CB20F /* CCPoint.cpp in Sources */,
 				298D57731B7448DB00932F06 /* main.cpp in Sources */,
 				29F60A9D1CFC3A67009829B1 /* CCAction.cpp in Sources */,

@@ -28,8 +28,6 @@ CCDirector* CCDirector::sharedDirector(){
 
 bool CCDirector::init(void){
 //    setDefaultValues();
-    //设置opengl 不用再applicationLaunching中设置了
-    setOpenGLView();
     
     // scenes
     m_pRunningScene = NULL;
@@ -129,28 +127,19 @@ void CCDirector::runWithScene(CCScene *pScene){
     m_pRunningScene = pScene;
 }
 
-void CCDirector::setOpenGLView(){
-//    // EAGLView is not a CCObject
-//    if(m_pobOpenGLView)
-//        delete m_pobOpenGLView; // [openGLView_ release]
-//    m_pobOpenGLView = pobOpenGLView;
-//    
-//    // set size
-//    m_obWinSizeInPoints = m_pobOpenGLView->getDesignResolutionSize();
-    m_obWinSizeInPoints = CCSizeMake(640, 480);
-//    
-//    createStatsLabel();
-//    
-//    if (m_pobOpenGLView)
-//    {
-        setGLDefaultValues();
-//    }
+void CCDirector::setOpenGLView(GLView *pobOpenGLView){
+    m_pobOpenGLView = pobOpenGLView;
     
+    //设置设计窗口大小
+    m_obWinSizeInPoints = m_pobOpenGLView->getDesignResolutionSize();
+    
+//    createStatsLabel();
+
+    setGLDefaultValues();
+
 //    CHECK_GL_ERROR_DEBUG();
-//    
 //    m_pobOpenGLView->setTouchDelegate(m_pTouchDispatcher);
 //    m_pTouchDispatcher->setDispatchEvents(true);
-
 }
 
 void CCDirector::setGLDefaultValues()
@@ -164,7 +153,6 @@ void CCDirector::setGLDefaultValues()
 //    setDepthTest(false);
 //    setProjection(m_eProjection);
     setMVP();
-    setViewport();
     
     // set other opengl default values
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -172,33 +160,40 @@ void CCDirector::setGLDefaultValues()
 
 //设置视图与透视投影矩阵
 void CCDirector::setMVP(){
+    setViewport();
+    
+    CCSize size = m_obWinSizeInPoints;
+    
     //获得眼睛位置
     //float zeye = this->getZEye();
-    //float zeye = m_obWinSizeInPoints.height / 1.1566f;
-    float zeye = 480.0f / 1.1566f;//算出来是1.1547 不知道哪里算错了
+    float zeye = m_obWinSizeInPoints.height / 1.1566f;
+//    float zeye = 480.0f / 1.1566f;//算出来是1.1547 不知道哪里算错了
     
     Matrix44 matrixPerspective, matrixLookup;
     
     //设置当前矩阵为投影矩阵，对投影矩阵进行操作
     mglMatrixMode(KM_GL_PROJECTION);
     mglLoadIdentity();
-    matrixPerspective = mgluPerspective(60.0f/180.0f*M_PI, 640/480.0f, 0.1f, 2*zeye);
+//    matrixPerspective = mgluPerspective(60.0f/180.0f*M_PI, 640/480.0f, 0.1f, 2*zeye);
+    matrixPerspective = mgluPerspective(60.0f/180.0f*M_PI, size.width/size.height, 0.1f, 2*zeye);
     mglMultMatrix(&matrixPerspective);
     
     //设置观察矩阵
     mglMatrixMode(KM_GL_MODELVIEW);
     mglLoadIdentity();
-    matrixLookup = mglLookAt(640.0f/2, 480.0f/2, zeye, 640.0f/2, 480.0f/2, 0.0f, 0, 1, 0.0f);
+//    matrixLookup = mglLookAt(640.0f/2, 480.0f/2, zeye, 640.0f/2, 480.0f/2, 0.0f, 0, 1, 0.0f);
+    matrixLookup = mglLookAt(size.width/2, size.height/2, zeye, size.width/2, size.height/2, 0.0f, 0.0f, 1.0f, 0.0f);
     mglMultMatrix(&matrixLookup);
 
 }
 
 //设置视口变换矩阵
 void CCDirector::setViewport(){
-//    glViewport((GLint)(x * m_fScaleX + m_obViewPortRect.origin.x),
-//               (GLint)(y * m_fScaleY + m_obViewPortRect.origin.y),
-//               (GLsizei)(w * m_fScaleX),
-//               (GLsizei)(h * m_fScaleY));
+    if (m_pobOpenGLView)
+    {
+        m_pobOpenGLView->setViewPortInPoints(0, 0, m_obWinSizeInPoints.width, m_obWinSizeInPoints.height);
+    }
+
 }
 
 CCSize CCDirector::getWinSize(void)

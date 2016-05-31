@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include "CCAction.h"
 #include "CCActionInterval.h"
+#include "GLView.h"
 
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
@@ -50,29 +51,25 @@ void idleCallback(){
 
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    glutInit(&argc, (char **)argv);
-    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGBA);
-    glutInitWindowSize (640, 480);
-    glutInitWindowPosition (1000, 100);
-    glutCreateWindow ("GLO2 2D Game Enginer");
-    glEnable(GL_TEXTURE_2D);      // 启用纹理映射
+//    kResolutionNoBorder,
+//    kResolutionShowAll,
+//    kResolutionFixedHeight,
+//    kResolutionFixedWidth,
+    GLView::sharedOpenGLView()->setFrameSize(1024, 768);
+    GLView::sharedOpenGLView()->setDesignResolutionSize(1024, 768, kResolutionShowAll);
+    CCDirector::sharedDirector()->setOpenGLView(GLView::sharedOpenGLView());
     
     CCScene *scene = CCScene::create();
     CCSprite *c1 = CCSprite::create("Resources/asset/Icon-72@2x.png");
-    CCAction *action = CCMoveBy::create(10, ccp(300, 300));
+    CCAction *action = CCMoveBy::create(10, ccp(700, 500));
     c1->runAction(action);
-    
-    CCSprite *c2 = CCSprite::create("Resources/asset/9.png");
-    scene->addChild(c1, 100, 100);
-    scene->addChild(c2, 10, 10);
-    
+    scene->addChild(c1, 20, 0);
     c1->setPosition(ccp(100, 200));
     c1->setScale(2);
     c1->setRotation(-30);
-//    c2->setRotation(30);
-//    c2->setScale(1);
-//    c2->setAnchorPoint(ccp(0.5, 0.5));
+
+    CCSprite *c2 = CCSprite::create("Resources/asset/9.png");
+    scene->addChild(c2, 10, 10);
     c2->setPosition(ccp(340, 240));
     
     CCDirector::sharedDirector()->runWithScene(scene);

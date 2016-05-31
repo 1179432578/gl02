@@ -12,13 +12,14 @@
 #include "CCSprite.h"
 #include "CCScheduler.h"
 #include "CCActionManager.h"
+#include "GLView.h"
 
 typedef enum {
     /// sets a 2D projection (orthogonal projection)
     kCCDirectorProjection2D,
     
     /// sets a 3D projection with a fovy=60, znear=0.5f and zfar=1500.
-    kCCDirectorProjection3D,
+    kCCDirectorProjection3D,//默认用这个
     
     /// it calls "updateProjection" on the projection delegate.
     kCCDirectorProjectionCustom,
@@ -52,13 +53,13 @@ public:
     void setViewport();
 
 //    void setOpenGLView(CCEGLView *pobOpenGLView);
-    //设置opengl 窗口
-    void setOpenGLView();
+    //设置opengl视图
+    void setOpenGLView(GLView *pobOpenGLView);
     
     /** sets the OpenGL default values */
     void setGLDefaultValues(void);
     
-    CCSize m_obWinSizeInPoints;//窗口大小
+    CCSize m_obWinSizeInPoints;//设计窗口大小
     
     CCSize getWinSize(void);//返回窗口大小
    
@@ -76,6 +77,8 @@ private:
     float m_fLastUpdateTime;
     
     bool m_bNextDeltaTimeZero;
+    
+    GLView *m_pobOpenGLView;
 };
 
 #endif /* CCDirector_hpp */
