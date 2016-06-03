@@ -154,3 +154,36 @@ void* HashTable::get(void *key, int size){
     //not find
     return NULL;
 }
+
+CCObject* HashTable::getFirst(){
+    for(int i=0; i<m_length; i++){
+        Element *e = m_table[i];
+        if (e) {
+            m_nextPos = i + 1;
+            m_nextElement = e->next;
+            return (CCObject*)e->value;
+        }
+    }
+    
+    return NULL;
+}
+
+CCObject* HashTable::getNext(){
+    if (m_nextElement) {
+        Element *tmp = m_nextElement;
+        m_nextElement = m_nextElement->next;
+        return (CCObject*)tmp->value;
+    }
+    
+    for (int i=m_nextPos; i<m_length; i++) {
+        Element *e = m_table[i];
+        if (e) {
+            m_nextPos = i + 1;
+            m_nextElement = e->next;
+            return (CCObject*)e->value;
+
+        }
+    }
+    
+    return NULL;
+}

@@ -27,11 +27,11 @@ public:
     
     CCObject* objectForKey(const char *key);
     
-    CCObject* objectForKey(int key);
+    CCObject* objectForKey(long key);//支持指针
     
     void setObject(CCObject* pObject, const char *key);
     
-    void setObject(CCObject* pObject, int key);
+    void setObject(CCObject* pObject, long key);
     
     void removeObjectForKey(char *key);
     
@@ -52,6 +52,10 @@ public:
     
     HashTable *m_dictionary;
     //CCDictElement* m_pElements;
+    
+    //遍历字典
+    CCObject* getFirst();
+    CCObject* getNext();
 private:
     
     

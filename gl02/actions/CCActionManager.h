@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "CCObject.h"
 #include "CCAction.h"
+#include "CCDictionary.h"
 
 typedef struct ActionList{
     CCNode *pTarget;
@@ -81,7 +82,7 @@ protected:
 //    struct _hashElement    *m_pCurrentTarget;
 //    bool            m_bCurrentTargetSalvaged;
     ActionList m_al;//just for test
-
+    CCDictionary m_pTargets;
 };
 
 #endif /* CCActionManager_hpp */

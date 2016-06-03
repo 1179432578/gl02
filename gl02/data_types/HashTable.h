@@ -52,6 +52,9 @@ public:
     //base get
     void* get(void *key, int size);
     
+    //用于遍历元素
+    CCObject* getFirst();
+    CCObject* getNext();
 protected:
     int indexFor(int hash, int length);
     
@@ -75,6 +78,9 @@ private:
     float m_loadFactor;
     
     float m_length;
+    
+    int m_nextPos;
+    Element *m_nextElement;
 };
 
 #endif /* HashTable_hpp */

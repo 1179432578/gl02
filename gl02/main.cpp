@@ -71,6 +71,9 @@ int main(int argc, const char * argv[]) {
     CCSprite *c2 = CCSprite::create("Resources/asset/9.png");
     scene->addChild(c2, 10, 10);
     c2->setPosition(ccp(340, 240));
+    CCAction *action2 = CCMoveBy::create(10, ccp(-200, -500));
+    c2->runAction(action2);
+
     
     CCDirector::sharedDirector()->runWithScene(scene);
     //窗口重绘函数，这里直接提供了一个空函数。创建窗口后、改变窗口大小都会触发重绘。重绘函数为空函数会导致出现白色窗口，

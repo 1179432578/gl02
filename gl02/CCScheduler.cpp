@@ -9,6 +9,16 @@
 #include "CCScheduler.h"
 #include <stdlib.h>
 
+// A list double-linked list used for "updates with priority"
+typedef struct ListEntry
+{
+    struct ListEntry   *prev, *next;
+    CCObject            *target;        // not retained (retained by hashUpdateEntry)
+    int                 priority;
+    bool                paused;
+    bool                markedForDeletion; // selector will no longer be called and entry will be removed at end of the next tick
+} ListEntry;
+
 CCScheduler::CCScheduler(void)
 : m_fTimeScale(1.0f)
 , m_pUpdatesNegList(NULL)
